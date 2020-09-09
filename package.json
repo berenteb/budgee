@@ -1,0 +1,24 @@
+{
+  "name": "budget-comparator",
+  "version": "1.0.0",
+  "description": "Compares expenses, income with monthly budget",
+  "main": "main.js",
+  "scripts": {
+    "test": "nodemon main.js"
+  },
+  "keywords": [
+    "money",
+    "budget",
+    "expense",
+    "income"
+  ],
+  "author": "Berente Bálint",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "create-react-app": "^3.4.1",
+    "react-cookie": "^4.0.3"
+  }
+}
