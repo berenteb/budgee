@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Down from './img/down.png'
+//import Down from './img/down.png'
 
 export class Home extends Component {
 
@@ -48,7 +48,13 @@ export class Home extends Component {
         this.setState({ style: style })
     }
 
-    componentDidMount() {
+    componentWillReceiveProps() {
+        this.calculateReserve();
+        this.calculateAverage();
+        this.setStyle();
+    }
+
+    componentDidMount(){
         this.calculateReserve();
         this.calculateAverage();
         this.setStyle();
@@ -69,9 +75,9 @@ export class Home extends Component {
                         <h2>Average</h2>
                         <h2 style={{ color: this.state.reserve < 0 ? "#900d0d" : this.state.reserve === 0 ? "#000000" : "#009A00" }}>{this.state.average} Ft</h2>
                     </div>
-                    <div className="tabField">
+                    {/*<div className="tabField">
                         <img height="50px" src={Down} alt="Scroll for more!"></img>
-                    </div>
+                    </div>*/}
                 </div>
             </div>
         )

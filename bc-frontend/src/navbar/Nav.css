@@ -1,5 +1,5 @@
 .navBar{
-    height: 10vh;
+    max-height: 10vh;
     width: 100%;
     position: fixed;
     padding: 15px 0 15px 0;

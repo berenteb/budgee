@@ -35,7 +35,7 @@ export class Settings extends Component {
                     </div>
                     <div className="tabField">
                         <h2>Delete all data</h2>
-                        <input type="button" value="Delete everything" className="button deleteButton"></input>
+                        <input type="button" value="Delete everything" className="button deleteButton" onClick={this.props.deleteData}></input>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 {
   "name": "budget-comparator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Compares expenses, income with monthly budget",
   "main": "main.js",
   "scripts": {
@@ -19,10 +19,11 @@
   },
   "dependencies": {
     "create-react-app": "^3.4.1",
+    "express": "^4.17.1",
     "react-cookie": "^4.0.3"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/berenteb/budget-comparator.git"
+    "type": "git",
+    "url": "https://github.com/berenteb/budget-comparator.git"
   }
 }
