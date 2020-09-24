@@ -1,6 +1,6 @@
 {
-  "name": "budget-comparator",
-  "version": "1.1.0",
+  "name": "budgee-server",
+  "version": "1.0.0",
   "description": "Compares expenses, income with monthly budget",
   "main": "main.js",
   "scripts": {
