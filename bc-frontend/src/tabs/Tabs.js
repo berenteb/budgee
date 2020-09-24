@@ -10,9 +10,9 @@ export class Tabs extends Component {
             case 0:
                 return <Home state={this.props.state}/>;
             case 1:
-                return <Add addRecord={this.props.addRecord}/>;
+                return <Add addRecord={this.props.addRecord} deleteExpenses={this.props.deleteExpenses}/>;
             case 2:
-                return <Settings state={this.props.state} editBudget={this.props.editBudget} editName={this.props.editName} deleteData={this.props.deleteData}/>;
+                return <Settings state={this.props.state} editBudget={this.props.editBudget} editName={this.props.editName} deleteName={this.props.deleteName} deleteBudget={this.props.deleteBudget}/>;
             case 3:
                 return <Info/>
                 default:

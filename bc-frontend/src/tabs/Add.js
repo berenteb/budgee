@@ -20,6 +20,7 @@ export class Add extends Component {
                     <p>Tip: Write negative value for income!</p>
                     <input type="number" placeholder="Type amount here!" className="textField" ref={this.inputRef}></input>
                     <input type="button" className="button" value="Add!" onClick={this.addRecord}></input>
+                    <input type="button" className="button deleteButton" value="Delete expenses" onClick={this.props.deleteExpenses}></input>
                 </div>
             </div>
         )

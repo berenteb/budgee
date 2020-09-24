@@ -27,15 +27,13 @@ export class Settings extends Component {
                         <h2>Monthly budget</h2>
                         <input type="number" placeholder={this.props.state.monthly_budget} className="textField" ref={this.budgetRef}></input>
                         <input type="button" value="Update" className="button" onClick={this.editBudget}></input>
+                        <input type="button" value="Delete" className="button deleteButton" onClick={this.props.deleteBudget}></input>
                     </div>
                     <div className="tabField">
                         <h2>Name</h2>
                         <input type="text" placeholder={this.props.state.name} className="textField" ref={this.nameRef}></input>
                         <input type="button" value="Update" className="button" onClick={this.editName}></input>
-                    </div>
-                    <div className="tabField">
-                        <h2>Delete all data</h2>
-                        <input type="button" value="Delete everything" className="button deleteButton" onClick={this.props.deleteData}></input>
+                        <input type="button" value="Delete" className="button deleteButton" onClick={this.props.deleteName}></input>
                     </div>
                 </div>
             </div>
