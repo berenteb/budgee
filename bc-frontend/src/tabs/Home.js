@@ -9,35 +9,6 @@ export class Home extends Component {
         style: { color: "#000000" }
     }
 
-    getMonthDays = function (month) {
-        var daysOfMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        if (month === 1) {
-            var d = new Date();
-            if (d.getFullYear() % 4 === 0) {
-                return 29;
-            }
-        }
-        return daysOfMonths[month];
-    }
-
-    calculateReserve = function () {
-        var d = new Date();
-        var reserve = this.props.state.monthly_budget / this.getMonthDays(d.getMonth()) * d.getDate() - this.props.state.expenses;
-        this.setState({
-            reserve: reserve
-        })
-
-    }
-
-    calculateAverage = function () {
-        var day = new Date().getDate();
-        var average = this.props.state.expenses / day;
-        var averageSplit = average.toString().split(".");
-        this.setState({
-            average: averageSplit[0]
-        })
-    }
-
     setStyle = function () {
         var style = { color: "#000000" }
         if (this.state.reserve < 0) {
@@ -48,11 +19,23 @@ export class Home extends Component {
         this.setState({ style: style })
     }
 
-    componentDidMount(){
-        this.calculateReserve();
-        this.calculateAverage();
-        this.setStyle();
-    }
+    static getDerivedStateFromProps(nextProps, prevState){
+        var d = new Date();
+        var daysOfMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if (d.getMonth() === 1) {
+            if (d.getFullYear() % 4 === 0) {
+                return 29;
+            }
+        }
+        var reserve = nextProps.state.monthly_budget / daysOfMonths[d.getMonth()] * d.getDate() - nextProps.state.expenses;
+        var average = nextProps.state.expenses / d.getDate();
+        var averageSplit = average.toString().split(".");
+        var result = {
+            reserve: reserve,
+            average: averageSplit[0]
+        }
+        return result;
+     }
 
     render() {
         return (
