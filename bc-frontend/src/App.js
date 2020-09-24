@@ -20,7 +20,8 @@ class App extends Component {
 
   addRecord = function (amount) {
     var new_expenses = this.state.expenses + amount;
-    localStorage.expenses = new_expenses
+    localStorage.expenses = new_expenses;
+    localStorage.lastMonth = new Date().getMonth();
     this.setState({
       expenses: new_expenses
     })
@@ -40,17 +41,31 @@ class App extends Component {
     })
   }
 
-  deleteData = function(){
+  deleteName = function(){
     localStorage.removeItem('name');
+    window.location.reload();
+  }
+
+  deleteBudget = function(){
     localStorage.removeItem('monthly_budget');
+    window.location.reload();
+  }
+
+  deleteExpenses = function(){
     localStorage.removeItem('expenses');
-    //location.reload();
+    window.location.reload();
   }
 
   initData = new Promise((res,rej)=>{
     var name = localStorage.name;
     var monthly_budget = parseInt(localStorage.monthly_budget);
     var expenses = parseInt(localStorage.expenses)||0;
+    var currentMonth = new Date().getMonth()
+    if(currentMonth >localStorage.lastMonth){
+      expenses = 0;
+      localStorage.expenses = 0;
+      localStorage.lastMonth = currentMonth;
+    }
     var result = {
       name: name,
       monthly_budget: monthly_budget,
@@ -59,26 +74,23 @@ class App extends Component {
     if(name&&monthly_budget>0){
       res(result);
     }else{
-      rej("NOT_SET");
+      rej(result);
     }
   })
 
   componentDidMount() {
     this.initData.then((res)=>{
       this.setState(res);
-      this.forceUpdate()
-    }).catch(reason=>{
-      if(reason==="NOT_SET"){
-        this.setState({tab:2});
-      }
+    }).catch(result=>{
+      result.tab = 2;
+      this.setState(result);
     })
-    
   }
 
   render() {
     return (
       <div className="App">
-        <Tabs state={this.state} addRecord={this.addRecord.bind(this)} editBudget={this.editBudget.bind(this)} editName={this.editName.bind(this)} deleteData={this.deleteData.bind(this)}/>
+        <Tabs state={this.state} addRecord={this.addRecord.bind(this)} editBudget={this.editBudget.bind(this)} editName={this.editName.bind(this)} deleteExpenses={this.deleteExpenses.bind(this)} deleteName={this.deleteName.bind(this)} deleteBudget={this.deleteBudget.bind(this)}/>
         <Nav tab={this.state.tab} changeTab={this.changeTab.bind(this)} />
       </div>
     );

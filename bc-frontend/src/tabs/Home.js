@@ -48,12 +48,6 @@ export class Home extends Component {
         this.setState({ style: style })
     }
 
-    componentWillReceiveProps() {
-        this.calculateReserve();
-        this.calculateAverage();
-        this.setStyle();
-    }
-
     componentDidMount(){
         this.calculateReserve();
         this.calculateAverage();
