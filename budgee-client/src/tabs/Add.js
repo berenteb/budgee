@@ -10,6 +10,7 @@ export class Add extends Component {
 
     addRecord = function(){
         this.props.addRecord(parseInt(this.inputRef.current.value))
+        this.inputRef.current.value = "";
     }
 
     render() {
