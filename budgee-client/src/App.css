@@ -5,7 +5,7 @@
     background-color: #E6E6E6;
     display: block;
     font-size: 130%;
- }
+}
 
 .mainContainer{
     display: flex;
@@ -26,7 +26,7 @@
     justify-content: space-around;
     flex-direction: column;
     overflow:auto;
-    padding-bottom: 20px;
+    padding: 5vh 0;
 }
 
 .textContent{
@@ -35,12 +35,13 @@
 
 .textField{
     width: fit-content;
+    height: fit-content;
     min-width: 20%;
     border-radius: 10px;
     border: none;
     padding: 10px;
     font-size: 20px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .button{
@@ -50,8 +51,8 @@
     border: none;
     padding: 10px;
     font-size: 20px;
-    margin: 10px auto;
     cursor: pointer;
+    margin: 10px;
     background-color: #1E5F74;
     color: #E6E6E6;
     -webkit-appearance: none;
@@ -59,12 +60,11 @@
 
 .deleteButton{
     background-color: #900d0d;
-    color: #E6E6E6;
-    margin: 0 auto;
 }
 
-.tabField{
-    display: block;
+.inline-flex{
+    display: inline-flex;
+    flex-wrap: wrap;
 }
 
 img{
@@ -80,4 +80,21 @@ ul{
 
 p{
     text-align: center;
+}
+
+.center{
+    margin: 10px auto;
+}
+
+@media (prefers-color-scheme: dark) {
+    .App{
+        background-color: black;
+        color: #E6E6E6;
+    }
+
+    .textField{
+        background-color: black;
+        border: 1px solid grey;
+        color: white;
+    }
 }
