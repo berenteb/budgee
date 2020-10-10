@@ -41,7 +41,7 @@ export class Settings extends Component {
     render() {
         return (
             <div className="mainContainer">
-                <div className="topContent">
+                <div className="section fillScreen">
                     <h1>Settings</h1>
                     <div className="tabField">
                         <h2>Monthly budget</h2>

@@ -20,7 +20,7 @@ export class Add extends Component {
     render() {
         return (
             <div className="mainContainer">
-                <div className="topContent">
+                <div className="section fillScreen last">
                     <h1>Add record</h1>
                     <p>Tip: Write negative value for income!</p>
                     <div className="tabField">

@@ -8,29 +8,29 @@
 }
 
 .mainContainer{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    margin: 0 auto;
+    display: block;
     text-align: center;
     width: 100%;
     height: 90%;
     overflow: auto;
 }
 
-.topContent{
+.last{
+    padding-bottom: 10vh;
+}
+
+.fillScreen{
+    height: 100%;
+}
+
+.section{
     width: 90%;
     margin: 0 auto;
     display: flex;
     flex-grow: 1;
     justify-content: space-around;
     flex-direction: column;
-    overflow:auto;
-    padding: 5vh 0;
-}
-
-.textContent{
-    display: table-column;
+    overflow: show;
 }
 
 .textField{

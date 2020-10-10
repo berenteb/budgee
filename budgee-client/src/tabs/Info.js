@@ -4,7 +4,7 @@ export class Info extends Component {
     render() {
         return (
             <div className="mainContainer">
-                <div className="topContent textContent">
+                <div className="section last">
                     <h1>Page information and guidebook</h1>
                     <div className="tabField">
                         <h2>How this app works?</h2>
@@ -27,7 +27,7 @@ export class Info extends Component {
                     <div className="tabField">
                         <h2>Known issues</h2>
                         <ul>
-                            <li>Safari doesn't save names with apostrophe correctly</li>
+                            <li>Safari number input accepts non-numeric input</li>
                         </ul>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import Down from './img/down.png'
+import Down from './img/down.png'
 
 export class Home extends Component {
 
@@ -32,7 +32,9 @@ export class Home extends Component {
         var averageSplit = average.toString().split(".");
         var result = {
             reserve: reserve,
-            average: averageSplit[0]
+            average: averageSplit[0],
+            expenses: nextProps.state.expenses,
+            monthly_budget: nextProps.state.monthly_budget
         }
         return result;
      }
@@ -40,22 +42,35 @@ export class Home extends Component {
     render() {
         return (
             <div className="mainContainer">
-                <div className="topContent">
-                    <div className="tabField">
-                        <h1>Hello, {this.props.state.name}!</h1>
+                    <div className="section fillScreen">
+                        <div className="tabField">
+                            <h1>Hello, {this.props.state.name}!</h1>
+                        </div>
+                        <div className="tabField">
+                            <h2>Reserve</h2>
+                            <h2 style={{ color: this.state.reserve < 0 ? "#900d0d" : "#009A00" }}>{this.state.reserve.toString().split(".")[0]} Ft</h2>
+                        </div>
+                        <div className="tabField">
+                            <h2>Average</h2>
+                            <h2 style={{ color: this.state.reserve < 0 ? "#900d0d" : "#009A00" }}>{this.state.average} Ft</h2>
+                        </div>
+                        <div className="tabField">
+                            <img height="50px" src={Down} alt="Scroll for more!"></img>
+                        </div>
                     </div>
-                    <div className="tabField">
-                        <h2>Reserve</h2>
-                        <h2 style={{ color: this.state.reserve < 0 ? "#900d0d" : this.state.reserve === 0 ? "#000000" : "#009A00" }}>{this.state.reserve.toString().split(".")[0]} Ft</h2>
+                    <div className="section fillScreen">
+                        <div className="tabField">
+                            <h1>Additional information</h1>
+                        </div>
+                        <div className="tabField">
+                            <h2>Expenses</h2>
+                            <h2 style={{ color: this.state.reserve < 0 ? "#900d0d" : "#009A00" }}>{this.state.expenses} Ft</h2>
+                        </div>
+                        <div className="tabField">
+                            <h2>Balance</h2>
+                            <h2 style={{ color: this.state.monthly_budget - this.state.expenses < 0 ? "#900d0d" : "#009A00" }}>{this.state.monthly_budget - this.state.expenses} Ft</h2>
+                        </div>
                     </div>
-                    <div className="tabField">
-                        <h2>Average</h2>
-                        <h2 style={{ color: this.state.reserve < 0 ? "#900d0d" : this.state.reserve === 0 ? "#000000" : "#009A00" }}>{this.state.average} Ft</h2>
-                    </div>
-                    {/*<div className="tabField">
-                        <img height="50px" src={Down} alt="Scroll for more!"></img>
-                    </div>*/}
-                </div>
             </div>
         )
     }
